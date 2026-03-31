@@ -1,16 +1,16 @@
 /**
- * HelloApp - UC3 - Display Hello with Command-Line Argument or Default Message
+ * HelloApp - UC4 - Display Hello with Multiple Command-Line Arguments or Default Message
  * @author Adit
- * @version 3.0
+ * @version 4.0
  */
 public class HelloApp{
     public static void main(String[] args) {
         
-        
         if (args.length > 0) {
-            String name = args[0];
-            
-            System.out.println("Hello " + name);
+            for (int i = 0; i < args.length; i++) {
+                String name = args[i];
+                System.out.println("Hello " + name);
+            }
         } else {
             String defaultName = "World";
             System.out.println("Hello " + defaultName);
