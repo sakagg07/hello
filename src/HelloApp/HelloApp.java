@@ -1,20 +1,23 @@
-/**
- * HelloApp - UC4 - Display Hello with Multiple Command-Line Arguments or Default Message
- * @author Adit
- * @version 4.0
- */
-public class HelloApp{
+package HelloApp;
+public class HelloApp {
     public static void main(String[] args) {
-        
-        if (args.length > 0) {
-            for (int i = 0; i < args.length; i++) {
-                String name = args[i];
-                System.out.println("Hello " + name);
-            }
+
+        StringBuilder names = new StringBuilder();
+
+        // If no arguments → default
+        if (args.length == 0) {
+            names.append("World");
         } else {
-            String defaultName = "World";
-            System.out.println("Hello " + defaultName);
+            // Enhanced for loop
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
         }
-        
+
+        // Final output
+        System.out.println("Hello, " + names + "!");
     }
 }
