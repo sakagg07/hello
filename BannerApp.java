@@ -1,68 +1,55 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class BannerApp {
-
-    // Centralized Pattern Storage using HashMap
-    private static final Map<Character, String[]> patternMap = new HashMap<>();
-
-    // Static block to initialize patterns
-    static {
-
-        patternMap.put('O', new String[]{
-                " ***** ",
-                "**   **",
-                "**   **",
-                "**   **",
-                "**   **",
-                "**   **",
-                " ***** "
-        });
-
-        patternMap.put('P', new String[]{
-                "****** ",
-                "**   **",
-                "**   **",
-                "****** ",
-                "**     ",
-                "**     ",
-                "**     "
-        });
-
-        patternMap.put('S', new String[]{
-                " ***** ",
-                "**     ",
-                "**     ",
-                " ***** ",
-                "     **",
-                "     **",
-                " ***** "
-        });
-    }
 
     public static void main(String[] args) {
 
-        String word = "OOPS";
+        String[] o = getOPattern();
+        String[] p = getPPattern();
+        String[] s = getSPattern();
 
-        for (int row = 0; row < 7; row++) {
-
-            StringBuilder line = new StringBuilder();
-
-            for (char ch : word.toCharArray()) {
-
-                String[] pattern = patternMap.get(ch);
-
-                if (pattern != null) {
-                    line.append(pattern[row]);
-                    line.append("   ");
-                }
-            }
-
-            System.out.println(line);
+        // Combine O O P S
+        for (int i = 0; i < o.length; i++) {
+            System.out.println(o[i] + " " + o[i] + " " + p[i] + " " + s[i]);
         }
     }
+
+    // Method for O
+    public static String[] getOPattern() {
+        return new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        };
+    }
+
+    // Method for P
+    public static String[] getPPattern() {
+        return new String[]{
+                "****** ",
+                "*     *",
+                "*     *",
+                "****** ",
+                "*      ",
+                "*      ",
+                "*      "
+        };
+    }
+
+    // Method for S
+    public static String[] getSPattern() {
+        return new String[]{
+                " ***** ",
+                "*     *",
+                "*      ",
+                " ***** ",
+                "      *",
+                "*     *",
+                " ***** "
+        };
+    }
 }
-
-
 
         
